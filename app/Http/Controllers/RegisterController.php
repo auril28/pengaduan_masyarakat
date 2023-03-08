@@ -20,6 +20,7 @@ class RegisterController extends Controller
                 'username' => 'required|unique:users,username',
                 'password' => 'required|min:8',
                 'telepon' => 'required|numeric',
+                
             ],
             [
                 'name.required' => 'Nama tidak boleh kosong',
@@ -32,7 +33,7 @@ class RegisterController extends Controller
                 'telepon.required' => 'Telepon tidak boleh kosong',
                 'telepon.numeric' => 'Telepon harus berupa angka',
             ]
-            );
+            );  
 
             User::create([
                 'name' => Str::camel($data['name']),
@@ -42,5 +43,5 @@ class RegisterController extends Controller
                 'telepon' => $data['telepon'],
             ]);
             return redirect('/login');
+        }
     }
-}

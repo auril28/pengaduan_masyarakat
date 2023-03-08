@@ -9,9 +9,7 @@ use App\Models\{
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
 use Carbon\Carbon;
-
 
 class TanggapanController extends Controller
 {
@@ -34,6 +32,7 @@ class TanggapanController extends Controller
     {
         //
         $pengaduans = Pengaduan::find($pengaduan->id);
+
         return view('tanggapan.create', compact('pengaduans'));
     }
 
@@ -45,7 +44,7 @@ class TanggapanController extends Controller
      */
     public function store(Request $request, Pengaduan $pengaduan)
     {
-        // //
+    
         // 'pengaduans_id',
         // 'users_id',
         // 'tgl_tanggapan',
@@ -68,6 +67,7 @@ class TanggapanController extends Controller
             ->update(['status' => $request->status]);
 
         return redirect('/pengaduan');
+        
     }
 
     /**

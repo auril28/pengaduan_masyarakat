@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Halaman Registrasi</title>
+  <title>Pengaduan Masyarakat</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -21,9 +21,9 @@
       <a href="{{ asset('adminlte/index2.html') }}" class="h1"><b>Pengaduan </b>Masyarakat</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Buat akun baru</p>
+      <p class="login-box-msg">Create Account?</p>
 
-      <form action="{{ route('register-store') }}" method="POST">
+      <form action="{{ route('register.store') }}" method="POST">
         @csrf
         <div class="input-group mb-3">
           <input type="text" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus  class="form-control @error('name') is-invalid @enderror" placeholder="Nama Lengkap">
@@ -66,7 +66,7 @@
           @enderror
         </div>
         <div class="input-group mb-3">
-          <input type="password" name="password" value="{{ old('name') }}" required autocomplete="name" autofocus class="form-control @error('name') is-invalid @enderror"  placeholder="Password anda">
+          <input type="password" name="password" value="{{ old('password') }}" required autocomplete="name" autofocus class="form-control @error('name') is-invalid @enderror"  placeholder="Password anda">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -82,7 +82,7 @@
         </div>
       </form>
 
-      <a href="{{ route('login') }}" class="text-center">Sudah ada akun</a>
+      <a href="{{ route('login') }}" class="text-center">Already Have Account?</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

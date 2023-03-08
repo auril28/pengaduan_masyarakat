@@ -2,26 +2,27 @@
 
 @section('content')
 
-<div class="row">
 <div class="col-md-12">
-  <div class="card card-cyan">
+  <div class="card card-primary">
     <div class="card-header">
-      <h1 class="card-title">PENGADUAN MASYARAKAT</h1>
+      <h3 class="card-title">PENGADUAN MASYARAKAT</h3>
     </div>
+    <!-- /.card-header -->
+    <!-- form start -->
 
-    <form action="{{route ('pengaduan.update', [$pengaduan->id])}}" method="POST">
-        @csrf 
-        @method('PUT')
+    <form action="{{route ('pengaduan.update', [$pengaduan->id])}}" method="POST"> 
+      @csrf 
+      @method('put')
       <div class="card-body">
         <div class="form-group">
-          <label for="">Nama Pelapor</label>
-          <input type="text" name="users_id" id="users_id" value="{{ $pengaduan->users_id }}" required>
+            <label for="">Nama Pelapor</label>
+            <input type="text" name="tanggal" id="tanggal" value="{{ $pengaduan->users_id}}" required>
+          </div>
+          <div class="form-group">
+          <label for="">Tanggal Pengaduan</label>
+          <input type="text" name="tanggal" id="tanggal" value="{{ $pengaduan->tgl_pengaduan }}" required>
         </div>
         <div class="form-group">
-          <label for="">Tanggal Pengaduan</label>
-          <input type="text" name="tgl_pengaduan" id="tgl_pengaduan" value="{{ $pengaduan->tgl_pengaduan }}" required>
-        </div>
-          <div class="form-group">
             <label for="Alamat">Isi Laporan</label>
             <textarea 
               class="form-control" 
@@ -29,18 +30,15 @@
               id="isi_laporan" placeholder="isi_laporan">{{ $pengaduan->isi_laporan }}</textarea>
           </div>
           <div class="form-group" >
-            <label for="formFile" class="form-label" name="foto">Foto</label>
-            <img src="{{ url('storage/' . $pengaduan->foto) }}" alt="" srcset="">
+            <label for="formFile" class="form-label">Foto</label>
+            <img src="{{ url('storage/' . $pengaduan->foto) }}" alt="" srcset="" style="width:500px;">
           </div>
 
-        </div>
-      </p>
-    <form>  
-    </div>
-    <div class="card-footer">
-      <input type="submit" class="btn btn-outline-primary ml-3" style="float:right;" value="Submit">
-      <a href="/pengaduan" class="btn btn-outline-secondary ml-3" style="float:left;">Back</a>
-    </div>
+          <div class="card-footer">
+           <button type= "submit" class="btn btn-primary" style="float:right">Save</button>
+           <a href="/pengaduan" class="btn btn-secondary ml-3" style="float:left;">Back</a>
+      </div>
+    </form>
   </div>
 </div>
 <!-- Optional JavaScript; choose one of the two! -->

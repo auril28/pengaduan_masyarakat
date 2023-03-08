@@ -58,7 +58,7 @@ class PengaduanController extends Controller
         $path = $request->file('foto')->store('public/img/');
 
         Pengaduan::create([
-            'user_id' => Auth::user()->id,
+            'users_id' => Auth::user()->id,
             'tgl_pengaduan' => Carbon::now()->format('Y-m-d'),
             'isi_laporan' => $request->isi_laporan,
             'foto' => $path,
@@ -89,7 +89,7 @@ class PengaduanController extends Controller
     public function edit(Pengaduan $pengaduan)
     {
         //
-        $pengaduans = Pengaduan::find($pengaduan->id);
+        $pengaduans = Pengaduan::all();
         return view ('pengaduan.edit', compact('pengaduan'));
     }
 
@@ -102,26 +102,30 @@ class PengaduanController extends Controller
      */
     public function update(Request $request, Pengaduan $pengaduan)
     {
-        $request->validate([
-            'isi_laporan' => 'required|min:10',
-            'foto' => 'required|image|mimes:jpg,jpeg,png|max:2048',
-        ], [
-            'isi_laporan.required'      => 'Isi laporan wajib di isi',
-            'isi_laporan.min'           => 'Isi laporan minimal 10 Karakter',
-            'foto.required'             => 'Foto Wajib Disi',
-            'foto.mimes'               => 'Wajib Foto dengan ekstensi .jpg , .jpeg, .png',
-            'foto.max'                  => 'Maksimal size 2MB'
-        ]);
+        // $request->validate([
+        //     'isi_laporan' => 'required|min:10',
+        //     'foto' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+        // ], [
+        //     'isi_laporan.required'      => 'Isi laporan wajib di isi',
+        //     'isi_laporan.min'           => 'Isi laporan minimal 10 Karakter',
+        //     'foto.required'             => 'Foto Wajib Disi',
+        //     'foto.mimes'               => 'Wajib Foto dengan ekstensi .jpg , .jpeg, .png',
+        //     'foto.max'                  => 'Maksimal size 2MB'
+        // ]);
         
-        $path = $request->file('foto')->store('public/img/');
+        // $path = $request->file('foto')->store('public/img/');
 
-        Pengaduan::where('id', $pengaduan->id)
-         ->update([
-            'users_id' => Auth::user()->id,
-            'tgl_pengaduan' => Carbon::now()->format('Y-m-d'),
+        // Pengaduan::where('id', $pengaduan->id)
+        //  ->update([
+        //     'users_id' => Auth::user()->id,
+        //     'tgl_pengaduan' => Carbon::now()->format('Y-m-d'),
+        //     'isi_laporan' => $request->isi_laporan,
+        //     'foto' => $path,
+        //     'status' => '0'
+        // ]);
+        $pengaduan->update([
+            // 'tgl_pengaduan' => $request->tgl_pengaduan,
             'isi_laporan' => $request->isi_laporan,
-            'foto' => $path,
-            'status' => '0'
         ]);
         return redirect('/pengaduan');
     }

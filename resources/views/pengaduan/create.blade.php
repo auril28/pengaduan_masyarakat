@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="col-md-12">
-  <div class="card card-red">
+  <div class="card card-primary">
     <div class="card-header">
       <h1 class="card-title">PENGADUAN MASYARAKAT</h1>
     </div>
@@ -33,8 +33,8 @@
       </p>
     </div>
     <div class="card-footer">
-      <input type="submit" class="btn btn-danger ml-3" value="Submit">
-      <a href="/pengaduan" class="btn btn-danger ml-3" style="float:left;">Back</a>
+      <input type="submit" class="btn btn-success ml-3" value="Submit">
+      <a href="/pengaduan" class="btn btn-warning ml-3" style="float:left;">Back</a>
     </div>
   </form>
   </div>

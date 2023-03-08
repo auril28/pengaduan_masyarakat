@@ -11,7 +11,7 @@ class Pengaduan extends Model
 
     protected $table = 'pengaduans';
     protected $fillable = [
-     'user_id',
+     'users_id',
      'tgl_pengaduan',
      'isi_laporan',
      'foto',
@@ -20,7 +20,7 @@ class Pengaduan extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\Models\User','user_id','id');
+        return $this->belongsTo('App\Models\User','users_id','id');
     }
 
     public function tanggapan()

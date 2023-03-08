@@ -1,15 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\{
     TanggapanController,
     PengaduanController,
     LoginController,
     DashboardController,
-    RegisterController
+    RegisterController,
+    UserController
 };
-
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +37,8 @@ Route::get('logout', [LoginController::class, 'logout'])->name('logout.petugas')
 Route::get('register', [RegisterController::class, 'view'])->name('register')->middleware(('guest'));
 Route::post('register', [RegisterController::class, 'store'])->name('register-store')->middleware(('guest'));
 
+Route::view('error/403', 'error.403')->name('error.403');
+
 Route::get('pengaduan/{pengaduan}/tanggapan', [TanggapanController::class, 'create'])->name('tanggapan.create');
 Route::post('pengaduan/{pengaduan}', [TanggapanController::class, 'store'])->name('tanggapan.store');
 
@@ -53,4 +54,5 @@ Route::middleware(['auth', 'level:masyarakat'])->group(function () {
     Route::get('/dashboard/masyarakat', [DashboardController::class, 'masyarakat'])->name('dashboard.masyarakat');
 });
 
-Route::view('error/403', 'error.403')->name('error.403');
+Route::get('cetak', [UserController::class, 'index']);
+Route::get('generatepdf', [UserController::class, 'generatepdf'])->name('user.pdf');
