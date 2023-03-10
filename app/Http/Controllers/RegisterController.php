@@ -16,11 +16,10 @@ class RegisterController extends Controller
     {
         $data = request()->validate(
             [
-                'name' => 'required|min:2|max:25',
+                'name' => 'required',
                 'username' => 'required|unique:users,username',
-                'password' => 'required|min:8',
                 'telepon' => 'required|numeric',
-                
+                'password' => 'required',
             ],
             [
                 'name.required' => 'Nama tidak boleh kosong',
@@ -43,5 +42,5 @@ class RegisterController extends Controller
                 'telepon' => $data['telepon'],
             ]);
             return redirect('/login');
-        }
     }
+}

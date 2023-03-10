@@ -56,3 +56,5 @@ Route::middleware(['auth', 'level:masyarakat'])->group(function () {
 
 Route::get('cetak', [UserController::class, 'index']);
 Route::get('generatepdf', [UserController::class, 'generatepdf'])->name('user.pdf');
+
+

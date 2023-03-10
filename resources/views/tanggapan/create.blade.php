@@ -16,7 +16,7 @@
     </div>
     <!-- /.col -->
     <div class="col-sm-6">
-      <div class="card card-secondary">
+      <div class="card card-warning">
         <div class="card-header">
           <h1 class="card-title">PENGADUAN MASYARAKAT</h1>
         </div>
@@ -50,8 +50,8 @@
             </p>
           </div>
           <div class="card-footer">
-            <a href="/pengaduan" class="btn btn-secondary ml-3" style="float:left;">Back</a>
-            <input type="submit" value="Tanggapi" class="btn btn-primary ml-3" style="float:right">
+            <a href="/pengaduan" class="btn btn-info ml-3" style="float:left;">Back</a>
+            <input type="submit" value="Tanggapi" class="btn btn-success ml-3" style="float:right">
           </form>
         </div>
         

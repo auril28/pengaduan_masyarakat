@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pengaduan Masyarakat</title>
+  <title>AdminLTE 3 | Halaman Registrasi</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -13,6 +13,23 @@
   <link rel="stylesheet" href="{{ asset('adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css') }}">
+  <style>
+    button {
+      transition: width 2s;
+    }
+    button:hover {
+      opacity: 0.7;
+    }
+    body {
+      
+       background-image: url("{{asset('adminlte/dist/img/pengaduan.jpg')}}");
+       height: 100%;
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
 </head>
 <body class="hold-transition register-page">
 <div class="register-box">
@@ -21,9 +38,9 @@
       <a href="{{ asset('adminlte/index2.html') }}" class="h1"><b>Pengaduan </b>Masyarakat</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Create Account?</p>
+      <p class="login-box-msg">Buat akun baru</p>
 
-      <form action="{{ route('register.store') }}" method="POST">
+      <form action="{{ route('register-store') }}" method="POST">
         @csrf
         <div class="input-group mb-3">
           <input type="text" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus  class="form-control @error('name') is-invalid @enderror" placeholder="Nama Lengkap">
@@ -38,40 +55,51 @@
             </span>
           @enderror
         </div>
+
         <div class="input-group mb-3">
-          <input type="text" name="username" value="{{ old('username') }}" required autocomplete="name" autofocus class="form-control @error('name') is-invalid @enderror" placeholder="Username anda">
+          <input type="text" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus class="form-control @error('username') is-invalid @enderror" placeholder="Username anda">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
-          @error('name')
+          @error('username')
             <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
             </span>
           @enderror
         </div>
+
         <div class="input-group mb-3">
-          <input type="text" name="telepon" value="{{ old('telepon') }}" required autocomplete="name" autofocus class="form-control @error('name') is-invalid
+          <input type="text" name="telepon" value="{{ old('telepon') }}" required autocomplete="telepon" autofocus class="form-control @error('telepon') is-invalid
           @enderror" placeholder="Nomor telepon anda">
           <div class="input-group-append">
             <div class="input-group-text">
               <i class="fas fa-phone-alt"></i>            
             </div>
           </div>
-          @error('name')
+          @error('telp')
             <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
             </span>
           @enderror
         </div>
+
         <div class="input-group mb-3">
-          <input type="password" name="password" value="{{ old('password') }}" required autocomplete="name" autofocus class="form-control @error('name') is-invalid @enderror"  placeholder="Password anda">
+          <input type="password" name="password" value="{{ old('password') }}" required autocomplete="password" autofocus class="form-control @error('password') is-invalid
+          @enderror" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+              <i class="fas fa-phone-alt"></i>            
             </div>
           </div>
+          @error('password')
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+          @enderror
+        </div>
+
         </div>
         <div class="row">
           <!-- /.col -->
@@ -81,8 +109,7 @@
           <!-- /.col -->
         </div>
       </form>
-
-      <a href="{{ route('login') }}" class="text-center">Already Have Account?</a>
+      <a href="{{ route('login') }}" class="text-center">Sudah ada akun</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

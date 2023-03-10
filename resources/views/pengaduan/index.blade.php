@@ -44,7 +44,7 @@
                       @method('DELETE')
                       <input type="submit" Class="btn btn-info" value="Delete">
                     @else
-                      <a class="btn btn-olive"   href="pengaduan/{{ $item->id }}">Detail</a>
+                      <a class="btn btn-warning"   href="pengaduan/{{ $item->id }}">Detail</a>
                     @endif
                 @else
                   <a class="btn btn-danger"  href="/pengaduan/{{ $item->id }}/">Detail</a>

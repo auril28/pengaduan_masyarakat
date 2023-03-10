@@ -19,7 +19,6 @@ class UserController extends Controller
     public function generatepdf(){
         $datauser = User::all();
         $data = Pengaduan::all();
-
         $pdf = PDF::loadView('pages.users', [ 'data' => $data]);
 
         return $pdf->download('latihanpdf.pdf');
